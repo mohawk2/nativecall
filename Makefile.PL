@@ -2,10 +2,16 @@ use ExtUtils::MakeMaker;
 use strict;
 use warnings;
 
+my %runtime_reqs = (
+  'parent' => 0,
+  'FFI::Platypus' => 0,
+  'FFI::CheckLib' => 0.06,
+  'Sub::Util' => 0,
+);
+
 WriteMakefile(
   NAME => 'NativeCall',
   VERSION_FROM => 'lib/NativeCall.pm',
-  CONFIGURE_REQUIRES => { 'ExtUtils::MakeMaker' => 0 },
   ABSTRACT_FROM => 'lib/NativeCall.pm',
   AUTHOR => 'Ed J <etj@cpan.org>',
   LICENSE => 'perl',
@@ -19,4 +25,10 @@ WriteMakefile(
       },
     },
   },
+  CONFIGURE_REQUIRES => { 'ExtUtils::MakeMaker' => 0 },
+  TEST_REQUIRES => {
+    'Test::More' => 0,
+    %runtime_reqs,
+  },
+  PREREQ_PM => \%runtime_reqs,
 );
