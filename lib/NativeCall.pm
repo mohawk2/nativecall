@@ -24,7 +24,7 @@ sub _attr_parse {
       \)
     )?
   /x);
-  return ($attribute, [ split /,\s*/, $args ]);
+  return ($attribute, [ split /,\s*/, $args//'' ]);
 }
 
 sub MODIFY_CODE_ATTRIBUTES {
