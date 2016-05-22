@@ -6,7 +6,7 @@ use Sub::Util qw(subname);
 use FFI::Platypus;
 use FFI::CheckLib 0.06;
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 my %attr2handler = (
   Native => sub {},
@@ -106,3 +106,9 @@ A comma-separated list of L<FFI::Platypus::Type>s.
 A single L<FFI::Platypus::Type>.
 
 =back
+
+=head1 INSPIRATION
+
+This module is entirely inspired by the article about Perl 6 NativeCall at
+L<http://blogs.perl.org/users/zoffix_znet/2016/05/perl-6-nativecall-look-ma-im-a-c-programmer-1.html>.
+All credit for clear explanation to Zoffix. All brickbats to me.
