@@ -8,10 +8,10 @@ use FFI::CheckLib 0.06;
 
 our $VERSION = '0.002';
 
-my %attr2handler = (
-  Native => sub {},
-  Args => sub {},
-  Returns => sub {},
+my %attr21 = (
+  Native => 1,
+  Args => 1,
+  Returns => 1,
 );
 
 sub _attr_parse {
@@ -33,7 +33,7 @@ sub MODIFY_CODE_ATTRIBUTES {
   my %attr2args;
   for my $attr (@attrs) {
     my ($attribute, $args) = _attr_parse($attr);
-    if (!$attr2handler{$attribute}) {
+    if (!$attr21{$attribute}) {
       push @bad, $attribute;
       next;
     } else {
