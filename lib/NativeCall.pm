@@ -1,6 +1,38 @@
 package NativeCall;
 
-our $VERSION = 0.001;
+use strict;
+use warnings;
+
+our $VERSION = '0.001';
+
+my %attr2handler = (
+  Native => sub {},
+  Args => sub {},
+);
+
+sub _attr_parse {
+  my ($attr) = @_;
+  my ($attribute, $args) = ($attr =~ /
+    (\w+)
+    \(
+      (.*?)
+    \)
+  /x);
+  return ($attribute, [ split /,\s*/, $args ]);
+}
+
+sub MODIFY_CODE_ATTRIBUTES {
+  my ($package, $subref, @attrs) = @_;
+  my @bad;
+  for my $attr (@attrs) {
+    my ($attribute, $args) = _attr_parse($attr);
+    if (!$attr2handler{$attribute}) {
+      push @bad, $attribute;
+      next;
+    }
+  }
+  return @bad;
+}
 
 1;
 
