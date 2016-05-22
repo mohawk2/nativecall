@@ -83,8 +83,8 @@ NativeCall - Perl 5 interface to foreign functions in Perl code without XS
 =head1 DESCRIPTION
 
 Mimics the C<NativeCall> module and interface from Perl 6. Uses
-L<FFI::Platypus> for the actual hard work. Uses inheritance and
-L<attributes>.
+L<FFI::Platypus>, by the mighty Graham Ollis, for the actual hard
+work. Uses inheritance and L<attributes>.
 
 See F<examples/troll.pl> for the example given above in SYNOPSIS.
 
