@@ -1,0 +1,10 @@
+0.003 2016-05-23
+  - credit plicease
+  - remove debug from example
+  - avoid uninit warning
+
+0.002 2016-05-22
+  - credit Zoffix
+
+0.001 2016-05-22
+  - initial version
