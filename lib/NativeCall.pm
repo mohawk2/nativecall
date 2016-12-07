@@ -22,11 +22,11 @@ sub _attr_parse {
     (\w+)
     (?:
       \(
-      (.*?)
+      (.*)
       \)
     )?
   /x);
-  return ($attribute, [ split /,\s*/, $args//'' ]);
+  return ($attribute, [ map { s/;/,/gr; } split /,\s*/, ($args//'') =~ s/(\([^)]*\))/$1 =~ s{,}{;}rg /ger ]);
 }
 
 sub MODIFY_CODE_ATTRIBUTES {
