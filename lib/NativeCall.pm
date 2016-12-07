@@ -12,6 +12,7 @@ my %attr21 = (
   Native => 1,
   Args => 1,
   Returns => 1,
+  Symbol => 1,
 );
 
 sub _attr_parse {
@@ -42,7 +43,7 @@ sub MODIFY_CODE_ATTRIBUTES {
     }
   }
   my $subname = subname $subref;
-  my $sub_base = (split /::/, $subname)[-1];
+  my $sub_base = $attr2args{Symbol}->[0] // (split /::/, $subname)[-1];
   my $ffi = FFI::Platypus->new;
   my $lib = $attr2args{Native}->[0] || undef; # undef means standard library
   $ffi->lib($lib ? find_lib_or_die lib => $lib : undef);
@@ -79,6 +80,10 @@ NativeCall - Perl 5 interface to foreign functions in Perl code without XS
 
   sub fmax :Args(double, double) :Native :Returns(double) {}
   say "fmax(2.0, 3.0) = " . fmax(2.0, 3.0);
+  
+  # avoid Perl built in also called "abs"
+  sub myabs :Args(int) :Native :Returns(int) :Symbol(abs) {}
+  say "abs(-3) = " . abs(-3);
 
 =head1 DESCRIPTION
 
@@ -104,6 +109,10 @@ A comma-separated list of L<FFI::Platypus::Type>s.
 =item Returns
 
 A single L<FFI::Platypus::Type>.
+
+=item Symbol
+
+The native symbol name, if different from the Perl sub name.
 
 =back
 
