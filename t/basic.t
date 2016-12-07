@@ -1,8 +1,9 @@
 use strict;
 use warnings;
-use Test::More tests => 1;
+use Test::More tests => 2;
 
 use parent qw(NativeCall);
 
-sub fmax :Args(double, double) :Native :Returns(double) {}
-is fmax(2.0, 3.0), 3.0;
+sub strcmp :Args(string,string) :Native :Returns(int) {}
+is strcmp("abc","abc"), 0;
+isnt strcmp("abc","def"), 0;
