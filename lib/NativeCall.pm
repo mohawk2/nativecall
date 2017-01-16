@@ -7,7 +7,7 @@ use Sub::Util qw(subname);
 use FFI::Platypus;
 use FFI::CheckLib 0.06;
 
-our $VERSION = '0.004';
+our $VERSION = '0.005';
 
 my %attr21 = (
   Native => 1,
