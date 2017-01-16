@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 my %runtime_reqs = (
+  'perl' => '5.016',
   'parent' => 0,
   'FFI::Platypus' => 0,
   'FFI::CheckLib' => 0.06,

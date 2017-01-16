@@ -2,6 +2,7 @@ package NativeCall;
 
 use strict;
 use warnings;
+use 5.016;
 use Sub::Util qw(subname);
 use FFI::Platypus;
 use FFI::CheckLib 0.06;
