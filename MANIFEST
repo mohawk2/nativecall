@@ -4,3 +4,4 @@ Makefile.PL
 examples/troll.pl
 lib/NativeCall.pm
 t/basic.t
+t/symbol.t
