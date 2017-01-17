@@ -105,7 +105,8 @@ use what is already loaded.
 
 =item Args
 
-A comma-separated list of L<FFI::Platypus::Type>s.
+A comma-separated list of L<FFI::Platypus::Type>s.  All types are supported,
+including L<closures|FFI::Platypus::Type#Closures>.
 
 =item Returns
 
