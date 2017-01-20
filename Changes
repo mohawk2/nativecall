@@ -1,3 +1,6 @@
+0.006 2017-01-20
+  - allow closure types (thanks to plicease for all of these)
+
 0.005 2017-01-16
   - allow Symbol attribute (thanks to plicease for all of these)
   - require 5.16 because of attribute.pm bug
