@@ -84,7 +84,7 @@ NativeCall - Perl 5 interface to foreign functions in Perl code without XS
   
   # avoid Perl built in also called "abs"
   sub myabs :Args(int) :Native :Returns(int) :Symbol(abs) {}
-  say "abs(-3) = " . abs(-3);
+  say "abs(-3) = " . myabs(-3);
 
 =head1 DESCRIPTION
 
